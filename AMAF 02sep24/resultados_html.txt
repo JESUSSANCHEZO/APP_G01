@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de gastos
+{% endblock %}
+
+{% block content %}
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados Filtrados</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <h1>Registros Filtrados por Mes y Año</h1>
+
+    <!--table>
+        <tr>
+            <th>Fecha</th>
+            <th>Monto</th>
+            <th>Cuenta</th>
+            <th>Detalle</th>
+        </tr>
+        {% for registro in registros %}
+        <tr>
+            <td>{{ registro.fecha }}</td>
+            <td class="alinear_derecha">{{ "{:,.2f}".format(registro.monto) }}</td>
+            <td>{{ registro.cuenta }}</td>
+            <td>{{ registro.detalle }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="total-row">
+            <td colspan="1">Total:</td>
+            <td style="text-align: right;"> {{ "{:,.2f}".format(total_monto) }}</td>
+        </tr>
+    </table-->
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Cuenta</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro['idg'] }}</td>
+                <td>{{ registro['f_f'] }}</td>
+                <td class="alinear_derecha">{{ "%.2f"|format(registro['monto'])|replace(",", "X")|replace(".", ",")|replace("X", ".") }}</td>
+                <td>{{ registro['cuenta'] }}</td>
+                <td>{{ registro['detalle'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td colspan="2">Total</td>
+                <td style="text-align: right;"> {{ "{:,.2f}".format(total_monto) }}</td>
+                <td colspan="2"></td>
+            </tr>
+        </tfoot>
+    </table>  
+
+    <form method="post">
+        <div class="barra-botones">
+            <a href="vermes"><button type="button" class="b1">Volver</button></a>
+            <a href="/"><button type="button" class="b1">Inicio</button></a>
+        </div>
+      </form>
+
+
+</body>
+
+
+{% endblock %}

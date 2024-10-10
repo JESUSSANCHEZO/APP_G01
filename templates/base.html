@@ -1,0 +1,16 @@
+<title>{% block title %} {% endblock title %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!--Static es la carpeta donde se guardará el archivo style.css-->
+<body>
+    <nav> <!--Barra de navegación -->
+        <div class ="cont_titulo">
+            <div class ="titulo">
+                Sistema de registro de gastos
+            </div>
+        </div>    
+    </nav>
+    <section> <!--Area ade contenido-->
+        {% block content %}{% endblock %}
+    </section>
+
+    
+</body>

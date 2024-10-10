@@ -1,0 +1,278 @@
+
+body{
+    width: 100vw;
+    max-width: 96%;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    gap:15px;
+}
+
+h1{
+    text-align: center;
+    color: darkcyan;
+}
+
+p {
+    color: #444;
+    text-align: left;
+    font-size: small;
+}
+
+.cont_titulo {
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.titulo {
+    width: 95%;
+    background-color: cadetblue;
+    color:whitesmoke;
+    font-size: smaller;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.cuerpo{
+    height: 90vh;
+    width: 98%;
+    background-color:gainsboro;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 5px;
+}
+
+.cont_form{
+
+    width: 80vw;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap:10px;
+
+    margin-bottom: 30px;
+}
+
+.cont_form label {
+
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: medium;    
+    font-weight: bold;
+    text-align: left;
+}
+
+.cont_form select {
+    width: 80vw;
+    height: 5vh;
+    margin-bottom: 15px;
+    font-size: medium;    
+    font-weight: normal;
+    border-radius: 5px;
+
+}
+
+.cont_form input {
+    /*display: block;*/
+    width: 100%;
+    height: 10%;
+    margin-bottom: 15px;
+    font-size: medium;    
+    font-weight: normal;
+    border-radius: 5px;
+}
+
+.cont_form button{
+    width: 100%;
+    height: 6vh;
+    border-width: 3px;
+    border-color: rgb(115, 117, 116);
+    border-style: outset;
+
+    font-weight: bold;
+    margin-top: 5px; 
+}
+
+.botonera1{
+    height: 75%;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    justify-content: center; /*justifica centro vertical*/
+    align-items: center; /*justifica centro horizontal*/
+}
+
+.botonera1 button{
+    width: 75vw;
+    height: 6vh;
+    border-width: 3px;
+    border-color: gainsboro;
+    border-style: outset;
+
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.botonera1 button:hover{
+    background-color: gainsboro;
+}
+
+.b1{
+    width: 100%;
+    height: 6vh;
+    border-width: 3px;
+    border-color: rgb(115, 117, 116);
+    border-style: outset;
+    font-weight: bold;
+
+}
+
+/*Para botones sueltos*/
+.botonera2{
+    height: 50%;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    justify-content: top; /*justifica centro vertical*/
+    align-items: center; /*justifica centro horizontal*/
+}
+
+.botonera2 button{
+    width: 80vw;
+    height: 6vh;
+    border-width: 3px;
+    border-color: rgb(115, 117, 116);
+    border-style: outset;
+
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.botonera2 button:hover{
+    background-color: gray;
+}
+
+/**********************/ TABLAS /**********************/
+.cont_tabla {
+    width: 96vw;
+    max-width: 90%;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+}
+
+.cont_table, th, td {
+    width: 80%;
+    margin: 0;
+    align-self: center;
+    background-color: whitesmoke;
+}
+.cont_tabla {
+    font-family: 'Open Sans', sans-serif;
+    border-collapse: collapse;
+
+}
+.cont_tabla td, th {
+    padding: 2px;
+    font-size: smaller;
+    border: 1px solid #444;
+}
+
+.cont_table, th {
+    background-color: darkcyan;
+    color: aliceblue;
+    width: 15%;
+}
+
+.cont_tabla tr {
+    background-color: #f2f2f2;
+}
+
+.ids {
+    max-width: 5%;
+}
+.montos {
+    max-width: 15%;
+    text-align: right;
+}
+.fechas {
+    max-width: 20%;
+    text-align: center;
+}
+.cuentas {
+    max-width: 20%;
+}
+.detalles {
+    max-width: 40%;
+}
+
+/**************************/ BOTONERAS /******************************/
+.cont_botoneraD3{
+    background-color:aquamarine;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+    
+.cont_botoneraD3 button{
+    height: 6vh;
+    width: 30%;
+    border-width: 3px;
+    border-color: rgb(115, 117, 116);
+    border-style: outset;
+    font-weight: bold;
+    text-align: center; /* Centra el texto dentro del botón */
+}
+
+
+.cont_botoneraD4{
+    background-color: gainsboro;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; /* Espacio entre botones */
+}
+
+.cont_botoneraD4 button{
+    border-width: 3px;
+    border-color: rgb(115, 117, 116);
+    border-style: outset;
+    font-weight: bold;
+    margin-top: 20px
+}
+
+/*PARA FORM CON 4 BOTONES*/
+.cont_botoneraF4{
+    width: 100%;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+    
+.cont_botoneraF4 button{
+    width: 21%;
+    height: 60%;
+    border-width: 3px;
+    border-color: rgb(115, 117, 116);
+    border-style: outset;
+    font-weight: bold;
+    font-size:smaller;
+    margin-top: 20px;
+    text-align:center;
+}
+
+

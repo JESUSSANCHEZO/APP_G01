@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<script>
+    function verificarFormatoFecha() {
+        const fechaInput = document.getElementById("fecha");
+        const fecha = fechaInput.value;
+        const partes = fecha.split("/");
+
+        if (partes.length === 3) {
+            const dia = partes[0];
+            const mes = partes[1];
+            const anio = partes[2];
+
+            // Verificar si el día, mes y año tienen el formato correcto
+            if (dia.length === 2 && mes.length === 2 && anio.length === 2) {
+                // La fecha tiene el formato correcto
+                fechaInput.setCustomValidity(""); // Borra cualquier mensaje de error previo
+            } else {
+                // La fecha no tiene el formato correcto
+                fechaInput.setCustomValidity("Formato de fecha incorrecto. Use DD/MM/AA.");
+            }
+        } else {
+            fechaInput.setCustomValidity("Formato de fecha incorrecto. Use DD/MM/AA.");
+        }
+    }
+
+    // Función para asignar la fecha actual al cargar la página
+    window.onload = function() {
+        // Obtener la fecha actual en formato YYYY-MM-DD
+        const hoy = new Date().toISOString().split('T')[0];
+        
+        // Asignar la fecha actual al campo de fecha
+        document.getElementById('fecha').value = hoy;
+    };
+
+    // Mostrar la fecha en el campo de texto al ingresar el monto
+    document.getElementById('monto').addEventListener('input', function() {
+        // Obtener el valor del campo de fecha
+        const fechaActual = document.getElementById('fecha').value;
+
+        // Asignar la fecha al campo de texto para mostrarla
+        document.getElementById('fecha-mostrada').value = fechaActual;
+    });
+
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <div class="cuerpo">
+        <h1>Ingreso de nuevos registros</h1>
+        <div class="cont_form">    
+            <form method="post">
+                    <label>Fecha (DD/MM/AA):</label>
+                    <!--input type="text" id="fecha" placeholder="DD/MM/AA" name="fecha" required onblur="verificarFormatoFecha()"/-->
+                    <input type="date" id="fecha" placeholder="DD/MM/AA" name="fecha"/>
+
+                    <label>Monto:</label>
+                    <input type = "number" name="monto" step="0.01" required />
+
+                    <label>Cuenta</label>
+                    <select name="cuenta" required />
+                        <option value="Alimentación">Alimentación</option>
+                        <option value="Entretenimiento">Entretenimiento</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Colaboración">Colaboración</option>
+                        <option value="Salud">Salud</option>
+                        <option value="Educación">Educación</option>
+                        <option value="Servicios">Servicios</option>
+                        <option value="Servicio dom.">Servicio dom.</option>
+                        <option value="Créditos/deudas">Créditos/deudas</option>
+                        <option value="Materiales">Materiales</option>
+                        <option value="Negocios">Negocios</option>
+                        <option value="Refacciones carro">Refacciones carro</option>
+                        <option value="Ahorro">Ahorro</option>
+                        <option value="Ropas">Ropas</option>
+                        <option value="Impuestos">Impuestos</option>
+                        <option value="Regalos">Regalos</option>
+                        <option value="Mentenim. casa">Mentenim. casa</option>
+                        <option value="Recreos chicos">Recreos chicos</option>
+                    </select>
+
+                    <label>Detalle</label>
+                    <input type= "text" name="detalle" no required />
+
+                    <!--input type ="submit" value = "Guardar" /-->
+                    <button type="submit" class="b1">Guardar</button>
+            </form>
+        </div>
+        <div class = "botonera2">
+            <a href="/">
+            <button>Regresar</button>
+            </a>
+        </div> 
+ 
+    </div>
+
+<body>
+{% endblock %}

@@ -1,0 +1,58 @@
+Código para una función de borrado de registros de una tabla de MySQL llamada appg01 que contiene los campos idg, fecha, monto, cuenta, detalle. La idea es que se pueda ingresar el número de id del registro (idg) y el sistema muestre el contenido de ese registro con un botón para confirmar el borrado del mismo. Una vez eliminado, el sistema debe enviar a la página "labd". El sistema de registro de datos está elaborado y python con flask y html.
+
+Código en HTML y CSS para un formulario de ingreso de datos a una base de datos con estructura: fecha, monto, cuenta, detalle. Debe seguir algunos criterios de estilo:     border-style: solid; border-radius: 8px; border-width: 2px; border-color: rgb(69, 69, 70); background-color: bisque. y titulo {background-color: bisque; color: steelblue; padding-bottom: 1%;}
+
+Código en HTML y CSS para un listado de datos de un registro de una base de datos con estructura: fecha, monto, cuenta, detalle. Debe seguir algunos criterios de estilo:     border-style: solid; border-radius: 8px; border-width: 2px; border-color: rgb(69, 69, 70); background-color: bisque. y titulo {background-color: bisque; color: steelblue; padding-bottom: 1%;}
+
+Codigo en HTML para dar formato a un número tipo doble de una tabla MySQL llamada appg01 que contiene los campos idg, fecha, monto, cuenta, detalle. De ellos, el campo 'monto' debe aparecer en formato con separación de miles y dos decimales cuando se presenta en un campo tipo 'input' en HTML
+
+Código para una función de edición de registros de una tabla de MySQL llamada appg01 que contiene los campos idg, fecha, monto, cuenta, detalle. La idea es que se pueda ingresar el número de id del registro (idg) y el sistema muestre el contenido de ese registro con el dato fecha en formato "DD/MM/AA" que incluya el icono de calendario, y el dato 'monto' con dos decimales y separador de miles. La función debe contar con un botón para grabar los cambios en el  mismo. Una vez modificados los datos, el sistema debe enviar a la página "labd". Si el número de registro ingresado no existe, enviar un mensaje y volver a la solicitud. El sistema de registro de datos está elaborado y python con flask y html.
+
+código en HTML para comprobar si un número de id ingresado a través de un prompt en una variable 'valor', se encuentra en una tabla presentada previamente. El id es el campo 'idg' de una tabla en MySQL
+
+Código HTML para agregar una fila con total en una tabla que presenta los campos idg, fecha, monto, cuenta, detalle. Quiero que el campo monto presente total en una fila adicional de la tabla. El formato del total debe ser con separación de miles y dos decimales. 
+
+código en html para elaborar una tabla llamada 'tablaIDs' de presentación de datos de una tabla que contiene los campos idg, fecha, monto, cuenta y detalle. La tabla debe tener un total para el campo monto en una fila inferior. El total debe presentarse con separador de miles y dos decimales.
+
+---- pedir el total de la consulta en python
+
+Tengo una tabla en MySQL llamada 'appg01' que contiene los campos idg, fecha, monto, cuenta y detalle.
+La tabla es administrada con flask y html. Deseo enviar a la función 'review' que enlista los registros de 'appg01' el total del campo monto, de tal manera que aparezca al final de la tabla de presentación con separador de miles y dos decimales.
+
+---- para generar el módulo de revisión por mes/año
+
+Código en HTML y CSS para un listado de datos de un registro de una base de datos con estructura: fecha, monto, cuenta, detalle. Debe seguir algunos criterios de estilo:     border-style: solid; border-radius: 8px; border-width: 2px; border-color: rgb(69, 69, 70); background-color: bisque. y titulo {background-color: bisque; color: steelblue; padding-bottom: 1%;}.
+La tabla debe enlistar los registros específicos de un mes y año elegidos a través de dos objetos de lista desplegables con los meses y años disponibles para el filtrado de un mes y año en específico.
+Al presionar el botón de filtrado debe mostrarse la página 'unmes.html'
+
+Código en HTML y CSS para un listado de datos de un registro de una base de datos en  MySQL, con estructura: fecha, monto, cuenta, detalle. 
+La tabla debe enlistar los registros específicos de un mes y año elegidos a través de dos objetos de lista desplegables con los meses y años disponibles para el filtrado de un mes y año en específico.
+Al presionar el botón de filtrado debe mostrarse la página 'unmes.html'
+Debe seguir algunos criterios de estilo:     border-style: solid; border-radius: 8px; border-width: 2px; border-color: rgb(69, 69, 70); background-color: bisque. y titulo {background-color: bisque; color: steelblue; padding-bottom: 1%;}.
+
+código en html para obtener dos datos, mes y año en un formulario modal en una página independiente llamada "modalmes.html" la llamada a dicha página se realiza desde otra página html llamada "vermes.html" en la que se presenta un botón de acción para obtener los datos. 
+
+--- intento con tres páginas ---
+
+Tengo una aplicación desarrollada en python y html. Administra los datos de una tabla en MySQL llamada 'appg01' que tiene la estructura de campos: idg, fecha, monto, cuenta y detalle. Deseo que desarrolles código para agregar un módulo de revisión de los registros filtrados por mes y año. La idea es que a través de un botón en la página de revisión de datos llamada "pormes" se pueda indicar el mes y el año que servirán de criterio de filtrado. Por último, elaborar una página de resultados que muestre en una tabla el listado de los registros correspondientes al mes y año seleccionados. Al final de la tabla se debe totalizar la suma de los registros en su campo 'monto' de tal manera que ese total se presente con separador de miles y coma decimal, alineado a la derecha.
+Las páginas deben seguir los siguientes criterios de estilo: border-style: solid; border-radius: 8px; border-width: 2px; border-color: rgb(69, 69, 70); background-color: bisque. y titulo {background-color: bisque; color: steelblue; padding-bottom: 1%;}.
+
+--- para una tabla que presenta de 20 en 20 registros ---
+
+Tengo una aplicación desarrollada en python y html. Administra los datos de una tabla en MySQL llamada 'appg01' que tiene la estructura de campos: idg, fecha, monto, cuenta y detalle. Deseo que desarrolles código para visualizar los registros de 'appg01' en una tabla con los campos: idg, fecha, monto, cuenta y detalle. El nombre de esta función en el archivo 'appg01.py' es '´revision'. El archivo de presentación de los datos se llama 'review.html'. Esta tabla debe presentar los registros en lotes de 10 registros por vez. Al final de la tabla se deben añadir dos filas, la primera con el total de la página es decir, de los 10 registros mostrados utilizando el método ROW NUMBER para la paginación y en la otra fila el total general del campo monto. Al abrirse la página debe ir directamente a la última página para mostrar el último registro ingresado y los totales.
+Añadir un botón de selector de hojas para recorrer los lotes de 10 registros. Con botones 'ir al inicio' e 'ir al final'
+La página debe seguir los siguientes criterios de estilo: border-style: solid; border-radius: 8px; border-width: 2px; border-color: rgb(69, 69, 70); background-color: bisque. y titulo {background-color: bisque; color: steelblue; padding-bottom: 1%;}.
+
+
+--- para una tabla que presenta de 10 en 10 registros de un mes en específico ---
+
+Tengo una aplicación desarrollada en python y html. Administra los datos de una tabla en MySQL llamada 'appg01' que tiene la estructura de campos: idg, fecha, monto, cuenta y detalle. Deseo que desarrolles código para visualizar los registros de 'appg01' en una tabla con los campos: idg, fecha, monto, cuenta y detalle. El nombre de esta función en el archivo 'appg01.py' es 'resultados'. El archivo de presentación de los datos se llama 'resultados.html'. Esta tabla debe presentar los registros de un mes y año en específico, en lotes de 10 registros por vez. Al final de la tabla se deben añadir dos filas, la primera con el total de la página es decir, de los 10 registros mostrados y en la otra fila el total general del campo monto. Al abrirse la página debe ir directamente a la última página para mostrar el último registro ingresado y los totales. Es importante que para la paginación se use el método ROW NUMBER.
+El procedimiento debe modificar los filtros según se vaya navegando por las páginas de los lotes de registros. Según la página el mes y el año, debe solicitarse la página correspondiente en la función 'resultados'.
+Añadir un botón de selector de hojas para recorrer los lotes de 10 registros. Con botones 'ir al inicio', 'ir al final', 'anterior página', 'siguiente página'. Si no existe página anterior o siguiente, el botón debe deshabilitarse. 
+La página debe seguir los siguientes criterios de estilo: border-style: solid; border-radius: 8px; border-width: 2px; border-color: rgb(69, 69, 70); background-color: bisque. y titulo {background-color: bisque; color: steelblue; padding-bottom: 1%;}.
+
+--- para un botón de ahora
+Tengo una aplicación desarrollada en python y html. Administra los datos de una tabla en MySQL llamada 'appg01' que tiene la estructura de campos: idg, fecha, monto, cuenta y detalle. Deseo agregar un código HTML para que en el formulario de ingreso de datos llamado: 'registro.html' se añada al lado del campo de ingreso de 'fecha', un botón con la etiqueta 'hoy' mismo que grabará la fecha actual al campo fecha, anotará la fecha actual en el campo de ingreso de datos de fecha y dará enfoque al siguiente campo 'monto'.
+
+--- para que se añada la fecha de manera automática
+Tengo una aplicación desarrollada en python y html. Administra los datos de una tabla en MySQL llamada 'appg01' que tiene la estructura de campos: idg, fecha, monto, cuenta y detalle. Deseo agregar un código HTML para que en el formulario de ingreso de datos llamado: 'registro.html' se añada de manera automática el valor de la fecha de hoy al campo 'fecha'. Se muestre en un cuadro de texto tras haber ingresado el dato en el campo 'monto'.

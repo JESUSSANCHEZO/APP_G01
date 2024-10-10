@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+    <div class="cuerpo"> <!--era class="hoja"-->
+        <div class="botonera1">    
+            <a href="ingreso">
+                    <button id = "nuevo">Nuevo registro</button>
+            </a>
+            <a href="revision">
+                <button id = "revisar">Revisar registros</button>
+            </a>
+    
+            <a href="vermes">
+                <button id = "pormes" >Ver mes</button>
+            </a>
+            <button id = "salir" onclick="window.location.href='https://www.google.com'">Salir</button> 
+        </div>    
+    </div>
+</body>
+{% endblock %}

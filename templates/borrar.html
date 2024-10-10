@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+    Eliminar registro
+{% endblock %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Borrado</title>
+</head>
+<body>
+    <div class="cuerpo">
+        <h1>Confirmar borrado del registro seleccionado</h1>
+            <div class = "cont_tabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th>Cuenta</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class = "ids">{{ registro.idg }}</td>
+                            <td class = "fechas">{{ registro.fecha }}</td>
+                            <!--td>{{ registro.monto }}</td-->
+                            <!--td class="montos">{{ "%.2f"|format(registro['monto'])|replace(",", "X")|replace(".", ",")|replace("X", ".") }}</td-->
+                            <td class="montos">{{ "%.2f"|format(registro['monto'])|replace(",", "X")|replace(".", ",")|replace("X", ".") }}</td>
+                            <td class = "cuentas">{{ registro.cuenta }}</td>
+                            <td class = "detalles">{{ registro.detalle }}</td>
+                        </tr>
+                        <!-- Agrega más filas según sea necesario -->
+                    </tbody>
+                </table>
+            </div>
+
+        <p>¿Está seguro de que desea borrar el siguiente registro?</p>
+        
+        <div class = "cont_form">
+            <form method="post">          
+                <button type="submit">Confirmar Borrado</button>
+            </form>    
+            <div class="botonera1">    
+                <a href="{{ url_for('labd') }}"><button type="button">Cancelar</button></a>
+                <a href="/"><button type="button">Inicio</button></a>
+            </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,295 @@
+/*style.html*/
+body {
+    background-color: #e7ebee;
+}
+
+p{
+    font-family: Arial, sans-serif;
+    color: steelblue;
+}
+
+
+h1{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: rgb(49, 89, 122);
+}
+
+h2{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(49, 89, 122);
+}
+
+th{
+    font-family: Arial, sans-serif;
+    color: steelblue;
+}
+
+td{
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.etiqueta{
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+}
+
+
+.hoja{
+    width: 500PX;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: rgb(69, 69, 70);
+    background-color: bisque;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    background-color: bisque;
+    color: steelblue;
+    padding-bottom: 1%;
+}
+
+.cuerpo {
+    width: 90%;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    background-color: bisque;
+}
+
+.b1 {
+    /* display: flex;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    width: 200px; */
+
+    width: 150px;
+    padding: 10px 10px;
+    font-size: 14px;
+    background-color: steelblue; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave al cambiar el color */
+}
+
+.b1:hover {
+
+    color:rgb(252, 255, 254);
+    background-color: rgb(154, 154, 160);
+}
+
+.boton {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+tr {
+    background-color: #f2f2f2;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-rows: minmax(100px, auto);
+    grid-template-columns: minmax(auto,33%);
+}
+
+.barra-botones {
+    display: flex;
+    justify-content: space-around; /* Distribuye los botones uniformemente */
+    background-color: #f0f0f0; /* Fondo de la barra */
+    padding: 10px; /* Espacio interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.barra-titulo{
+    display: flex;
+    height: 20px;
+    justify-content: space-around; /* Distribuye los botones uniformemente */
+    background-color: #bdb8b8; /* Fondo de la barra */
+    padding: 5px; /* Espacio interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Estilo para los botones */
+/*.barra-botones button {
+    padding: 10px 10px;
+    font-size: 14px;
+    background-color: #007bff; /* Color de fondo */
+    /*color: white; /* Color del texto */
+    /*border: none; /* Sin bordes */
+    /*border-radius: 5px; /* Bordes redondeados */
+    /*cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    /*transition: background-color 0.3s ease; /* Transición suave al cambiar el color */
+/*}*/
+
+/* Estilo para el hover (cuando se pasa el mouse sobre el botón) */
+.barra-botones button:hover {
+    background-color: #0056b3;
+}
+
+/******************* formulario de registro y edición de datos -********************/
+/* Estilo para el formulario */
+.formulario-ingreso {
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: rgb(69, 69, 70);
+    background-color: bisque;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: steelblue
+}
+
+/* Estilo para el título */
+.formulario-ingreso h2 {
+    background-color: bisque;
+    color: steelblue;
+    padding-bottom: 1%;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Estilo para los campos del formulario */
+.formulario-ingreso label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.formulario-ingreso input[type="text"],
+.formulario-ingreso input[type="date"],
+.formulario-ingreso input[type="number"],
+.formulario-ingreso textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(69, 69, 70);
+    box-sizing: border-box;
+}
+
+/* Estilo para el botón */
+.formulario-ingreso input[type="submit"] {
+    margin-top: 15px;
+    background-color: steelblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Cambia el color del botón cuando se pasa el cursor sobre él */
+.formulario-ingreso input[type="submit"]:hover {
+    background-color: #003366;
+}
+
+/******************* listar datos para borrar -********************/
+/* Estilo para el contenedor del listado */
+.listado-registros {
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: rgb(69, 69, 70);
+    background-color: bisque;
+    padding: 20px;
+    width: 500px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para el título */
+.listado-registros h2 {
+    background-color: bisque;
+    color: steelblue;
+    padding-bottom: 1%;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Estilo para la tabla */
+.listado-registros table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilo para las celdas de la tabla */
+.listado-registros th,
+.listado-registros td {
+    border: 1px solid rgb(69, 69, 70);
+    padding: 10px;
+    /*text-align: left;*/
+}
+
+.textos {
+    text-align: left;
+}
+
+.montos {
+    text-align: right;
+}
+
+/* Estilo para el encabezado de la tabla */
+.listado-registros th {
+    background-color: steelblue;
+    color: white;
+}
+
+/* Estilo para las filas de la tabla */
+.listado-registros tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.alinear_derecha{
+    text-align: right;
+}
+
+.total-row {
+    font-weight: bolder;
+    text-align: right;
+}

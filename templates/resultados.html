@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de gastos
+{% endblock %}
+
+{% block content %}
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <title>Resultados Filtrados</title>
+
+    <script>
+
+        function comprobarID() {
+            //alert("Echo1!");
+            // Obtener el ID ingresado por el usuario
+            var idg = document.getElementById('idg').value;
+            //alert("Echo2!");
+            // Obtener la tabla y todas las filas
+            var tabla = document.getElementById('tablaIDs');
+            var filas = tabla.getElementsByTagName('tr');
+
+            // Inicializar una variable para comprobar si el ID está en la tabla
+            var encontrado = false;
+            
+            // Recorrer cada fila y comprobar si el ID está en la tabla
+            for (var i = 1; i < filas.length; i++) {  // Comienza en 1 para saltar el encabezado
+                var celda = filas[i].getElementsByTagName('td')[0];
+                if (celda.innerHTML == idg) {
+                    encontrado = true;
+                    break;
+                }
+            }
+
+        }    
+
+
+        function redirigirConParametro() {
+            // Muestra un cuadro de diálogo para ingresar el valor
+            const valor = prompt("Ingrese el ID del registro a EDITAR:");
+            
+            // Si el usuario ingresa un valor, redirige a la URL deseada
+            if (valor !== null && valor !== "") {
+                //comprobarID()
+                //if encontrado{
+
+                    var tabla = document.getElementById('tablaIDs');
+                    var filas = tabla.getElementsByTagName('tr');
+                    var encontrado = false;
+        
+                    for (var i = 1; i < filas.length; i++) {  // Comienza en 1 para saltar el encabezado
+                        var celda = filas[i].getElementsByTagName('td')[0];
+                        if (celda.innerHTML == valor) {
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (encontrado) {
+                        const url = "/editar/" + encodeURIComponent(valor);
+                        window.location.href = url;
+                    } else {
+                        alert("Debe ingresar un ID existente.");
+                    }
+                } else {
+                alert("Debe ingresar un valor.");
+                }   
+
+        }
+        //para borrar
+        function redirigirConParametro_b() {
+            // Muestra un cuadro de diálogo para ingresar el valor
+            const valor = prompt("Ingrese el ID del registro a ELIMINAR:");
+
+            // Si el usuario ingresa un valor, redirige a la URL deseada
+            if (valor !== null && valor !== "") {
+
+                var tabla = document.getElementById('tablaIDs');
+                var filas = tabla.getElementsByTagName('tr');
+                var encontrado = false;
+    
+                for (var i = 1; i < filas.length; i++) {  // Comienza en 1 para saltar el encabezado
+                    var celda = filas[i].getElementsByTagName('td')[0];
+                    if (celda.innerHTML == valor) {
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (encontrado) {
+                //original//const url = "https://www.ejemplo.com/page?parametro=" + encodeURIComponent(valor);
+                const url = "/borrar/" + encodeURIComponent(valor);
+                window.location.href = url;
+                } else {
+                    alert("Debe ingresar un ID existente.");
+                }                    
+            } else {
+                alert("Debe ingresar un valor.");
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class ="cuerpo">
+        <h1>Registros del mes</h1>
+        <div class = "cont_tabla">
+            <table id="tablaIDs">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Cuenta</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for registro in registros %}
+                    <tr>
+                        <td class = "ids">{{ registro.idg }}</td>
+                        <td class = "fechas">{{ registro['fecha'].strftime("%d/%m/%y") }}</td>
+                        <td class = "montos">{{ "{:,.2f}".format(registro['monto']) }}</td>
+                        <td class = "cuentas">{{ registro.cuenta }}</td>
+                        <td class = "detalles">{{ registro.detalle }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total Página:</td>
+                        <td class = "montos"><strong>{{ "{:,.2f}".format(total_pagina) }}</strong></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Total General:</td>
+                        <td class = "montos"><strong>{{ "{:,.2f}".format(total_general) }}</strong></td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="cont_botoneraF4">
+            <form action="/resultados" method="get">
+                <input type="hidden" name="mes" value="{{ mes }}">
+                <input type="hidden" name="anio" value="{{ anio }}">
+                <button type="submit" name="page" value="1" {% if page == 1 %}disabled{% endif %}>Primer registro</button>
+                <button type="submit" name="page" value="{{ page - 1 }}" {% if page == 1 %}disabled{% endif %}>Anterior Página</button>
+                <button type="submit" name="page" value="{{ page + 1 }}" {% if page == total_pages %}disabled{% endif %}>Siguiente Página</button>
+                <button type="submit" name="page" value="{{ total_pages }}" {% if page == total_pages %}disabled{% endif %}>Último registro</button>
+            </form>
+        </div> 
+        
+        <div class="cont_botoneraD3">
+            <!--div class="cuerpo boton"-->
+            <a href="/"><button type="button">Regresar al inicio</button></a>
+            <button type="button" onclick="redirigirConParametro()">Editar un registro</button>
+            <button type="button" onclick="redirigirConParametro_b()">Borrar un registro</button>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,169 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de gastos
+{% endblock %}
+
+{% block content %}
+  
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Revisión de registros ingresados</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+        <script>
+
+            function comprobarID() {
+                //alert("Echo1!");
+                // Obtener el ID ingresado por el usuario
+                var idg = document.getElementById('idg').value;
+                //alert("Echo2!");
+                // Obtener la tabla y todas las filas
+                var tabla = document.getElementById('tablaIDs');
+                var filas = tabla.getElementsByTagName('tr');
+    
+                // Inicializar una variable para comprobar si el ID está en la tabla
+                var encontrado = false;
+                
+                // Recorrer cada fila y comprobar si el ID está en la tabla
+                for (var i = 1; i < filas.length; i++) {  // Comienza en 1 para saltar el encabezado
+                    var celda = filas[i].getElementsByTagName('td')[0];
+                    if (celda.innerHTML == idg) {
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+            }    
+
+
+            function redirigirConParametro() {
+                // Muestra un cuadro de diálogo para ingresar el valor
+                const valor = prompt("Ingrese el ID del registro a EDITAR:");
+                
+                // Si el usuario ingresa un valor, redirige a la URL deseada
+                if (valor !== null && valor !== "") {
+                    //comprobarID()
+                    //if encontrado{
+
+                        var tabla = document.getElementById('tablaIDs');
+                        var filas = tabla.getElementsByTagName('tr');
+                        var encontrado = false;
+            
+                        for (var i = 1; i < filas.length; i++) {  // Comienza en 1 para saltar el encabezado
+                            var celda = filas[i].getElementsByTagName('td')[0];
+                            if (celda.innerHTML == valor) {
+                                encontrado = true;
+                                break;
+                            }
+                        }
+
+                        if (encontrado) {
+                            const url = "/editar/" + encodeURIComponent(valor);
+                            window.location.href = url;
+                        } else {
+                            alert("Debe ingresar un ID existente.");
+                        }
+                    } else {
+                    alert("Debe ingresar un valor.");
+                    }   
+
+            }
+            //para borrar
+            function redirigirConParametro_b() {
+                // Muestra un cuadro de diálogo para ingresar el valor
+                const valor = prompt("Ingrese el ID del registro a ELIMINAR:");
+    
+                // Si el usuario ingresa un valor, redirige a la URL deseada
+                if (valor !== null && valor !== "") {
+
+                    var tabla = document.getElementById('tablaIDs');
+                    var filas = tabla.getElementsByTagName('tr');
+                    var encontrado = false;
+        
+                    for (var i = 1; i < filas.length; i++) {  // Comienza en 1 para saltar el encabezado
+                        var celda = filas[i].getElementsByTagName('td')[0];
+                        if (celda.innerHTML == valor) {
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (encontrado) {
+                    //original//const url = "https://www.ejemplo.com/page?parametro=" + encodeURIComponent(valor);
+                    const url = "/borrar/" + encodeURIComponent(valor);
+                    window.location.href = url;
+                    } else {
+                        alert("Debe ingresar un ID existente.");
+                    }                    
+                } else {
+                    alert("Debe ingresar un valor.");
+                }
+            }
+
+            /*//TOTALIZAR Monto
+
+            // Obtener todas las celdas del campo "Monto"
+            var celdasMonto = document.querySelectorAll('#TablaIDs tbody tr td:nth-child(3)');
+            var totalMonto = 0;
+
+            // Sumar los valores de las celdas de "Monto"
+            celdasMonto.forEach(function(celda) {
+                totalMonto += parseFloat(celda.innerText);
+            });
+
+            // Formatear el total con separación de miles y dos decimales
+            var totalFormateado = totalMonto.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            //totalFormateado = 100
+            // Insertar el total en la celda correspondiente
+            document.getElementById('totalMonto').innerText = totalFormateado;*/
+
+
+        </script>
+    
+    </head>
+    <body>
+        <h1>Listado de Gastos</h1>
+        <table id="tablaIDs">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Cuenta</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appg01 in gastos %}
+                <tr>
+                    <td>{{ appg01['idg'] }}</td>
+                    <td>{{ appg01['f_f'] }}</td>
+                    <!--<td>{{ appg01['monto'] }}</td>-->
+                    <td class="alinear_derecha">{{ "%.2f"|format(appg01['monto'])|replace(",", "X")|replace(".", ",")|replace("X", ".") }}</td>
+                    <td>{{ appg01['cuenta'] }}</td>
+                    <td>{{ appg01['detalle'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="2">Total</td>
+                    <td style="text-align: right;"> {{ "{:,.2f}".format(total_monto) }}</td>
+                    <td colspan="2"></td>
+                </tr>
+            </tfoot>
+        </table>    
+
+        <div class="barra-botones">
+            <a href="/"><button type="button" class="b1">Regresar</button></a>
+            <button type="button" class="b1" onclick="redirigirConParametro()">Editar registro</button>
+            <button type="button" class="b1" onclick="redirigirConParametro_b()">Borrar registro</button>
+        </div>
+
+
+    </body>
+
+{% endblock %}

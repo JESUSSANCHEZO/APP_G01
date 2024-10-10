@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Registro</title>
+</head>
+<body>
+    <h1>Editar Registro</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <div class="formulario-ingreso">    
+      <form method="post">
+          <label for="fecha">Fecha (DD/MM/AA):</label>
+          <!--input type="text" id="fecha" name="fecha" value="{{ registro.fecha }}" required><br-->
+          <input type="date" id="fecha" name="fecha" value="{{ registro.fecha }}" required><br>
+
+          <label for="monto">Monto:</label>
+          <input type="number" step="0.01" id="monto" name="monto" value="{{ registro.monto }}" required><br>
+
+          <label for="cuenta">Cuenta:</label>
+          <input type="text" id="cuenta" name="cuenta" value="{{ registro.cuenta }}" required><br>
+
+          <label for="detalle">Detalle:</label>
+          <input type="text" id="detalle" name="detalle" value="{{ registro.detalle }}" ><br>
+
+          <button class="b1" type="submit">Guardar Cambios</button>
+      </form>
+
+    </div>
+
+    <form method="post">
+      <div class="barra-botones">
+          <a href="{{ url_for('labd') }}"><button type="button" class="b1">Cancelar</button></a>
+          <a href="/"><button type="button" class="b1">Inicio</button></a>
+      </div>
+    </form>
+</body>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+<title>{% block title %} {% endblock title %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<div class="hoja">
+    <div class="titulo">
+        <h2>Bienvenido al sistema de registro de gastos v.1</h2>
+    </div>
+    <div class="cuerpo">
+        <a href="ingreso">
+                <button id = "nuevo" class="b1">Nuevo registro</button>
+        </a>
+        <a href="revision">
+            <button id = "revisar" class="b1">Revisar registros</button>
+        </a>
+
+        <a href="vermes">
+            <button id = "pormes" class="b1">Ver mes</button>
+        </a>
+
+        <button id = "salir" class="b1" onclick="goBack()">Salir</button>
+    </div>
+
+</div>
+<body>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+</body>

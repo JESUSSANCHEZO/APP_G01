@@ -1,0 +1,61 @@
+#Registro.html
+{% extends 'base.html' %}
+
+{% block title %}
+    Ingresar gasto
+{% endblock %}
+
+{% block content %}
+
+<script>
+    function verificarFormatoFecha() {
+        const fechaInput = document.getElementById("fecha");
+        const fecha = fechaInput.value;
+        const partes = fecha.split("/");
+
+        if (partes.length === 3) {
+            const dia = partes[0];
+            const mes = partes[1];
+            const anio = partes[2];
+
+            // Verificar si el día, mes y año tienen el formato correcto
+            if (dia.length === 2 && mes.length === 2 && anio.length === 2) {
+                // La fecha tiene el formato correcto
+                fechaInput.setCustomValidity(""); // Borra cualquier mensaje de error previo
+            } else {
+                // La fecha no tiene el formato correcto
+                fechaInput.setCustomValidity("Formato de fecha incorrecto. Use DD/MM/AA.");
+            }
+        } else {
+            fechaInput.setCustomValidity("Formato de fecha incorrecto. Use DD/MM/AA.");
+        }
+    }
+</script>
+
+<h1>Ingreso de nuevos registros</h1>
+
+<div class="formulario-ingreso">
+    <form method="post">
+            <label>Fecha (DD/MM/AA):</label>
+            <!--input type="text" id="fecha" placeholder="DD/MM/AA" name="fecha" required onblur="verificarFormatoFecha()"/-->
+            <input type="date" id="fecha" placeholder="DD/MM/AA" name="fecha"/>
+
+            <label>Monto:</label>
+            <input type = "number" name="monto" step="0.01" required />
+
+            <label>Cuenta</label>
+            <input type ="text" name="cuenta" required />
+
+            <label>Detalle</label>
+            <input type= "text" name="detalle" no required />
+
+            <input type ="submit" value = "Guardar" />
+    </form>
+</div>
+<div>
+    <a href="/">
+    <button class="b1">Regresar</button>
+    </a>
+</div> 
+
+{% endblock %}

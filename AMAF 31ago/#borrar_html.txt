@@ -1,0 +1,53 @@
+#borrar_html
+{% extends 'base.html' %}
+{% block title %}
+    Eliminar registro
+{% endblock %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Borrado</title>
+</head>
+<body>
+    <h1>Confirmar Borrado del Registro</h1>
+
+    <p>¿Está seguro de que desea borrar el siguiente registro?</p>
+    
+    <div class="listado-registros">
+        <h2>Listado de Registros</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Cuenta</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ registro.idg }}</td>
+                    <td>{{ registro.fecha }}</td>
+                    <!--td>{{ registro.monto }}</td-->
+                    <!--td class="montos">{{ "%.2f"|format(registro['monto'])|replace(",", "X")|replace(".", ",")|replace("X", ".") }}</td-->
+                    <td class="montos">{{ "%.2f"|format(registro['monto'])|replace(",", "X")|replace(".", ",")|replace("X", ".") }}</td>
+                    <td>{{ registro.cuenta }}</td>
+                    <td>{{ registro.detalle }}</td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <form method="post">
+        <div class="barra-botones">
+            <button class="b1" type="submit">Confirmar Borrado</button>
+            <a href="{{ url_for('labd') }}"><button type="button" class="b1">Cancelar</button></a>
+            <a href="/"><button type="button" class="b1">Inicio</button></a>
+        </div>
+    </form>
+</body>
+
+{% endblock %}
