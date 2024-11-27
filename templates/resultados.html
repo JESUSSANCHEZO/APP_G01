@@ -118,6 +118,7 @@
                         <th>Monto</th>
                         <th>Cuenta</th>
                         <th>Detalle</th>
+                        <th>Presup.</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -128,6 +129,7 @@
                         <td class = "montos">{{ "{:,.2f}".format(registro['monto']) }}</td>
                         <td class = "cuentas">{{ registro.cuenta }}</td>
                         <td class = "detalles">{{ registro.detalle }}</td>
+                        <td class = "Presups">{{ registro.Previsto}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

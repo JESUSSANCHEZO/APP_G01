@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de gastos
+{% endblock %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportar Gastos</title>
+</head>
+<body>
+    <div class="cuerpo">
+        <h2>Exportar Datos de Gastos</h2>
+        <div class = "cont_form">       
+            <form action="/exportar" method="POST">
+                <label for="fecha_inicio">Fecha de Inicio:</label>
+                <input type="date" id="fecha_inicio" placeholder="DD/MM/AA" name="fecha_inicio" required>
+
+                <label for="fecha_fin">Fecha de Finalización:</label>
+                <input type="date" id="fecha_fin" placeholder="DD/MM/AA" name="fecha_fin" required>
+
+                <div class="buttons">
+                    <button type="submit">Descargar datos</button>
+                </div>
+                <form method="post">
+                <div class="botonera2" >
+                    <a href="/"><button type="button">Cancelar</button></a>
+                </div>
+            </form>
+        </div>    
+    </div>
+</body>
+
+{% endblock %}
+

@@ -99,7 +99,8 @@
                     alert("Debe ingresar un valor.");
                 }
             }
-        </script>
+
+          </script>
     
     </head>
 
@@ -117,6 +118,7 @@
                             <th>Monto</th>
                             <th>Cuenta</th>
                             <th>Detalle</th>
+                            <th>Previsto</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -127,6 +129,7 @@
                             <td class = "montos">{{ "{:,.2f}".format(record['monto']) }}</td>
                             <td class = "cuentas">{{ record['cuenta'] }}</td>
                             <td class = "detalles">{{ record['detalle'] }}</td>
+                            <td class = "Presups">{{ record['Previsto'] }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
